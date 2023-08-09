@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zesty Zomato Menu</title>
+    <link rel="stylesheet" href="{% static 'menu.css' %}">
+</head>
+<body>
+    <h1>Welcome to Zesty Zomato!</h1>
+    <h2>Menu:</h2>
+    <table class="menu-table">
+        <thead>
+            <tr>
+                <th>Dish</th>
+                <th>Price</th>
+                <th>Availability</th>
+                <th>Update</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dish_id, dish_info in menu.items %}
+                <tr>
+                    <td>{{ dish_info.name }}</td>
+                    <td>${{ dish_info.price }}</td>
+                    <td class="{% if dish_info.available %}available{% else %}unavailable{% endif %}">
+                        {% if dish_info.available %}Available{% else %}Not Available{% endif %}
+                    </td>
+                    <td>
+                        <a class="update" href="{% url 'update_availability' dish_id %}">Update</a>
+                    </td>
+                    <td>    
+                        <a class="remove" href="{% url 'remove_dish' dish_id %}">Remove</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="menu-actions">
+        <a href="/add_dish">Add Dish</a>
+        <a href="/take_order">Take Order</a>
+        <a href="/review_orders">Review Orders</a>
+    </div>
+</body>
+</html>
+

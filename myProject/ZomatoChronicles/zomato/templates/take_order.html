@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Take Order</title>
+    <link rel="stylesheet" href="{% static 'take_orders.css' %}">
+</head>
+<body>
+    <h1>Take a New Order</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" id="customer_name" name="customer_name" required><br>
+        
+        <fieldset class="dishes-fieldset">
+            <legend>Select Dishes:</legend>
+            {% for dish_id, dish_info in menu.items %}
+                <input type="checkbox" id="dish_{{ dish_id }}" name="dish_ids" value="{{ dish_id }}" class="dish-checkbox">
+                <label for="dish_{{ dish_id }}" class="dish-label">{{ dish_info.name }} - ${{ dish_info.price }}</label><br>
+            {% endfor %}
+        </fieldset>
+        
+        <button type="submit" class="place-order-button">Place Order</button>
+    </form>
+</body>
+</html>

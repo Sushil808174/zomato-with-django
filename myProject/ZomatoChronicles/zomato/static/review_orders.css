@@ -1,0 +1,104 @@
+/* static/review_orders.css */
+
+/* Basic reset and styles */
+body, h1, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+
+
+/* Order list styles */
+.order-list {
+    list-style-type: none;
+    margin: 0 auto;
+    width: 70%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.order-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Adjusting last item's border */
+.order-item:last-child {
+    border-bottom: none;
+}
+
+
+.order-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.order-table th, .order-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.order-table th {
+    background-color: #f2f2f2;
+}
+
+.order-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.order-table tr:hover {
+    background-color: #ddd;
+}
+
+.update{
+    text-decoration: none;
+    color: rgb(4, 157, 106);
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    margin: 5px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 20%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.form{
+    width: 80%;
+    margin: auto;
+}
+
+select, button {
+    padding: 7px;
+    margin: 3px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #428bca;
+    padding: 5px 25px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ebd;
+}
